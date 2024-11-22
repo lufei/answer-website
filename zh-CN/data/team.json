@@ -70,6 +70,12 @@
         "role": "Developer"
       },
       {
+        "name": "sy-records",
+        "github": "https://github.com/sy-records",
+        "avatar": "https://avatars.githubusercontent.com/u/33931153?v=4",
+        "role": "Developer"
+      },
+      {
         "name": "tisonkun",
         "avatar": "https://avatars.githubusercontent.com/u/18818196",
         "github": "https://github.com/tisonkun",
@@ -106,9 +112,9 @@
         "role": "Developer"
       },
       {
-        "name": "sy-records",
-        "github": "https://github.com/sy-records",
-        "avatar": "https://avatars.githubusercontent.com/u/33931153?v=4",
+        "name": "zahash",
+        "github": "https://github.com/zahash",
+        "avatar": "https://avatars.githubusercontent.com/u/36153955?v=4",
         "role": "Developer"
       }
     ]
