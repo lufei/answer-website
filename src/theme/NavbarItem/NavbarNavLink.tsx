@@ -12,10 +12,16 @@ import isInternalUrl from '@docusaurus/isInternalUrl';
 import {isRegexpStringMatch} from '@docusaurus/theme-common';
 import IconExternalLink from '@theme/Icon/ExternalLink';
 import type {Props} from '@theme/NavbarItem/NavbarNavLink';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+interface SProps extends Props {
+  tos: Record<string, any>
+}
 
 export default function NavbarNavLink({
   activeBasePath,
   activeBaseRegex,
+  tos,
   to,
   href,
   label,
@@ -23,13 +29,22 @@ export default function NavbarNavLink({
   isDropdownLink,
   prependBaseUrlToHref,
   ...props
-}: Props): JSX.Element {
+}: SProps): JSX.Element {
   // TODO all this seems hacky
   // {to: 'version'} should probably be forbidden, in favor of {to: '/version'}
-  const toUrl = useBaseUrl(to);
+  const { i18n: { currentLocale } } = useDocusaurusContext();
+  // If to is a string, we assume it's a path that needs localization
+  const aliasTo = tos?.[currentLocale] || to;
+  const toUrl = useBaseUrl(aliasTo);
   const activeBaseUrl = useBaseUrl(activeBasePath);
   const normalizedHref = useBaseUrl(href, {forcePrependBaseUrl: true});
   const isExternalLink = label && href && !isInternalUrl(href);
+
+  const clickLink = (e) => {
+     if (e.target?.lang) {
+       localStorage.setItem('_lang_user_', e.target.lang);
+     }
+  }
 
   // Link content is set through html XOR label
   const linkContentProps = html
@@ -53,6 +68,7 @@ export default function NavbarNavLink({
         href={prependBaseUrlToHref ? normalizedHref : href}
         {...props}
         {...linkContentProps}
+        onClick={clickLink}
       />
     );
   }
@@ -69,6 +85,7 @@ export default function NavbarNavLink({
       })}
       {...props}
       {...linkContentProps}
+      onClick={clickLink}
     />
   );
 }
