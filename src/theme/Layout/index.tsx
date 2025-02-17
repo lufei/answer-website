@@ -23,6 +23,7 @@ import LayoutProvider from '@theme/Layout/Provider';
 import ErrorPageContent from '@theme/ErrorPageContent';
 import type {Props} from '@theme/Layout';
 import BrowserLanguage from './BrowserLanguage';
+import GlobalHead from './globalHead';
 
 import styles from './styles.module.css';
 
@@ -36,13 +37,12 @@ export default function Layout(props: Props): JSX.Element {
     description,
   } = props;
 
-  const location = useLocation();
-
   useKeyboardNavigation();
 
 
   return (
     <LayoutProvider>
+      <GlobalHead />
       <PageMetadata title={title} description={description} />
 
       <SkipToContent />
