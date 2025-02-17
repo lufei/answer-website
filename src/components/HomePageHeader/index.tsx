@@ -39,31 +39,6 @@ const HomeHead: FC = () => {
   const { i18n: { currentLocale } } = useDocusaurusContext();
 
 
-  useEffect(() => {
-    fetch('https://img.shields.io/github/stars/apache/answer')
-      .then((response) => response.text())
-      .then((data) => {
-        const num = data.match(/<text .*>(.*?)<\/text>/)[1];
-        if (num) {
-          setStars(num);
-        }
-      });
-      let i = 0;
-      const timer = setInterval(() => {
-        setSloganClss('sloganOut');
-        setTimeout(() => {
-          setSlogan(list[i]);
-          setSloganClss('sloganIn');
-        }, 300);
-        i++;
-        if (i === list.length) {
-          i = 0;
-        }
-      }, 4500);
-    () => {
-      clearInterval(timer)
-    }
-  }, []);
 
   function numWord($num) {
     if ($num >= 1000 && $num < 1000000) {
@@ -139,7 +114,7 @@ const HomeHead: FC = () => {
               >
                 <Icon name="github" size="24px"  className="me-2" />
                 {` Star `}
-                {stars !== 0 ? numWord(stars) : ''}
+                13.9k
               </Button>
             </div>
           </Col>

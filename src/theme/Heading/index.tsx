@@ -49,7 +49,6 @@ export default function Heading({as: As, id, ...props}: Props): JSX.Element {
         props.className,
       )}
       id={id}>
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob: 'unsafe-inline' https://www.apachecon.com/ https://www.communityovercode.org/ https://analytics.apache.org/ https://api-js.mixpanel.com/track/; connect-src https://api-js.mixpanel.com/track/;" />
       {props.children}
       <Link
         className="hash-link"

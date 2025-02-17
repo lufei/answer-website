@@ -22,7 +22,6 @@ import Footer from '@theme/Footer';
 import LayoutProvider from '@theme/Layout/Provider';
 import ErrorPageContent from '@theme/ErrorPageContent';
 import type {Props} from '@theme/Layout';
-import mixpanel from 'mixpanel-browser';
 import BrowserLanguage from './BrowserLanguage';
 
 import styles from './styles.module.css';
@@ -41,13 +40,6 @@ export default function Layout(props: Props): JSX.Element {
 
   useKeyboardNavigation();
 
-  useEffect(() => {
-    mixpanel.init('84c6c96fab326b95afbbd54aadda641b');
-  }, [])
-
-  useEffect(() => {
-    mixpanel.track_pageview();
-  }, [location]);
 
   return (
     <LayoutProvider>
