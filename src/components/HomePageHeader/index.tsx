@@ -30,13 +30,30 @@ const list = [
 ]
 
 const HomeHead: FC = () => {
-  const [stars, setStars] = useState(0);
   const [slogan, setSlogan] = useState(<Translate id="home.title.qa">
   Q&A Platform
 </Translate>);
   const [sloganClass, setSloganClss] = useState('sloganIn');
 
   const { i18n: { currentLocale } } = useDocusaurusContext();
+
+  useEffect(() => {
+      let i = 0;
+      const timer = setInterval(() => {
+        setSloganClss('sloganOut');
+        setTimeout(() => {
+          setSlogan(list[i]);
+          setSloganClss('sloganIn');
+        }, 300);
+        i++;
+        if (i === list.length) {
+          i = 0;
+        }
+      }, 4500);
+    () => {
+      clearInterval(timer)
+    }
+  }, []);
 
 
 
@@ -114,7 +131,7 @@ const HomeHead: FC = () => {
               >
                 <Icon name="github" size="24px"  className="me-2" />
                 {` Star `}
-                13.9k
+                14k
               </Button>
             </div>
           </Col>
