@@ -6,7 +6,7 @@ import Layout from '@theme/Layout';
 
 import HeaderSlogan from '../components/HeaderSlogan';
 
-import pluginList from '../../static/data/plugin.json';
+import pluginList from '@site/static/data/plugin.json';
 
 
 export default function Plugins(): JSX.Element {

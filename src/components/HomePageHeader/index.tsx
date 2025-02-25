@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import Translate from '@docusaurus/Translate';
 import Icon from '@site/src/components/Icon';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-
+import data from '@site/static/data/stars.json';
 import styles from './index.module.css';
 
 const list = [
@@ -131,7 +131,7 @@ const HomeHead: FC = () => {
               >
                 <Icon name="github" size="24px"  className="me-2" />
                 {` Star `}
-                14k
+                {numWord(data.stars)}
               </Button>
             </div>
           </Col>
