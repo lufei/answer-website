@@ -18,7 +18,7 @@ TeamJson.forEach(function(u) {
 
 console.log('ignoreList', ignoreList);
 
-// 获取所有仓库的地址
+// all repo urls
 var repositoryUrls = [
   'https://api.github.com/repos/apache/answer/contributors?page=%d&per_page=100',
   'https://api.github.com/repos/apache/answer-plugins/contributors?page=%d&per_page=100',
@@ -33,7 +33,7 @@ function fetchContributors() {
   });
 
   return Promise.all(promises).then(function(results) {
-    // 去重
+    // filter duplicate contributors
     var uniqueContributors = [];
     allContributors.forEach(function(contributor) {
       var existingContributor = uniqueContributors.find(function(c) {
@@ -70,7 +70,7 @@ function fetchPagedContributors(url, index, page, currentResults) {
       return res.json();
     })
     .then(function(data) {
-      // 将新获取的数据添加到 currentResults 中
+      // Add the newly fetched data to currentResults
       var newResults = currentResults.concat(
         data.map(function(contributor) {
           return {
