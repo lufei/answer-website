@@ -8,6 +8,7 @@ import HeaderSlogan from '../components/HeaderSlogan'
 
 export default function Plugins(): JSX.Element {
   const item =  latest.release.version;
+  const date= '2025-05-06'
   return (
     <Layout
       title={translate({ message: 'Download' })}
@@ -29,7 +30,7 @@ export default function Plugins(): JSX.Element {
           <tbody>
             <tr>
               <td>{item}</td>
-              <td>2025-03-24</td>
+              <td>{date}</td>
               <td>
                 <ul className="list-unstyled mb-0">
                   <li>
