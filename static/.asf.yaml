@@ -35,4 +35,3 @@ notifications:
   issues:       issues@answer.apache.org
   pullrequests: issues@answer.apache.org
   discussions:  issues@answer.apache.org
-  jobs:         builds@flink.apache.org
